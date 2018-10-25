@@ -1,0 +1,29 @@
+server:
+  port: 9001
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/amazondb?useUnicode=true&amp;characterEncoding=UTF8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    tomcat:
+      max-active: 20
+      test-while-idle: true
+      min-idle: 15
+      initial-size: 15
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+      format-sql: true
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    generate-ddl : true
+    show-sql : true
+
+  data:
+    elasticsearch:
+      cluster-name: JSJ-ES
+      cluster-nodes: 192.168.25.133:9300
+
